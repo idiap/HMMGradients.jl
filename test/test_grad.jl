@@ -83,7 +83,8 @@ Nb = 3
 Ns = 10
 Nts = [10,15,20]
 A  = rand(T,Ns,Ns)
-As = repeat(A,1,1,Nb)
+As = zeros(T,Ns,Ns,Nb)
+for i = 1:Nb As[:,:,i] .= A end
 as = rand(T,Ns,Nb)
 ys = rand(T,maximum(Nts),Ns,Nb)
 alphas,cs = forward(Nts,as,As,ys)
