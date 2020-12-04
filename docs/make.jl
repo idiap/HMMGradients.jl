@@ -1,9 +1,9 @@
-using Documenter, DocumenterLaTeX
+using Documenter #, DocumenterLaTeX
 using HMMGradients
 
 makedocs(
     sitename = "HMMGradients",
-    format = [Documenter.HTML(), DocumenterLaTeX.LaTeX()],
+    format = [Documenter.HTML()],#, DocumenterLaTeX.LaTeX()],
     authors = "Niccolò Antonello",
     modules = [HMMGradients],
     pages = [
@@ -17,6 +17,6 @@ makedocs(
 # Documenter can also automatically deploy documentation to gh-pages.
 # See "Hosting Documentation" and deploydocs() in the Documenter manual
 # for more information.
-#=deploydocs(
-    repo = "<repository url>"
-)=#
+deploydocs(
+    repo = "https://github.com/idiap/HMMGradients.jl"
+)

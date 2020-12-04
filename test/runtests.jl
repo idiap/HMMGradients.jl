@@ -17,5 +17,5 @@ include("utils.jl")
   @testset "logprob space" begin
     include("test_loggrad.jl")
   end
-  doctest(HMMGradients)
+  #doctest(HMMGradients)
 end

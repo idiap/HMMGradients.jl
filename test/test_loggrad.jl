@@ -75,7 +75,7 @@ T = Float32
 Nb = 3
 Ns = 10
 Nts = [10,15,20]
-A = log.(spdiagm(Ns,Ns,0=>ones(T,Ns), 1=>ones(T,Ns-1), 2=>ones(T,Ns-2)))
+A = log.(rand(T,Ns,Ns))
 As = repeat(A,1,1,Nb)
 as = log.(rand(T,Ns,Nb))
 ys = log.(rand(T,maximum(Nts),Ns,Nb))
