@@ -8,6 +8,14 @@ making it possible to train HMM models using the automatic differentiation frame
 for example using [Zygote](https://github.com/FluxML/Zygote.jl) and machine learning libraries like [Flux](https://github.com/FluxML/Flux.jl). 
 The package also provides numerical stable algorithms to compute forward, backward and posterior probabilities of HMMs.
 
+## Installation
+
+To install the package, simply issue the following command in the Julia REPL:
+
+```julia
+] add HMMGradients
+```
+
 ## Acknowledgements
 
 This work was developed under 
