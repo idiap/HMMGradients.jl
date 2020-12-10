@@ -1,5 +1,6 @@
 # HMMGradients.jl
 
+[![](https://img.shields.io/badge/docs-dev-blue.svg)](https://idiap.github.io/HMMGradients.jl/dev/)
 ![CI](https://github.com/idiap/HMMGradients.jl/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/idiap/HMMGradients.jl/branch/main/graph/badge.svg?token=012MD4OIZY)](https://codecov.io/gh/idiap/HMMGradients.jl)
 
@@ -18,3 +19,5 @@ To install the package, simply issue the following command in the Julia REPL:
 ```julia
 ] add HMMGradients
 ```
+
+For more information check the [documentation](https://idiap.github.io/HMMGradients.jl/dev/).
