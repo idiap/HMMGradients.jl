@@ -12,6 +12,7 @@ makedocs(
         "Forward-Backward functions" => "2_fb.md",
         "Computing gradients" => "3_grads.md",
     ],
+    doctest=false,
 )
 
 # Documenter can also automatically deploy documentation to gh-pages.

@@ -1,7 +1,10 @@
 name: Documentation
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - master
+    tags: '*'
+  pull_request:
 jobs:
   build:
     runs-on: ubuntu-latest
