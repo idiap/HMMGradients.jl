@@ -19,6 +19,6 @@ makedocs(
 # See "Hosting Documentation" and deploydocs() in the Documenter manual
 # for more information.
 deploydocs(
-    repo = "https://github.com/idiap/HMMGradients.jl",
+    repo = "github.com/idiap/HMMGradients.jl.git",
     devbranch = "main",
 )
