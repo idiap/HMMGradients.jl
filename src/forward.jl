@@ -43,43 +43,6 @@ function forward!(alpha::AbstractArray{T},c::Vector{T},
   return alpha, c
 end
 
-function forward!(alpha::AbstractArray{T},c::Vector{T},
-                  Nt::Integer,
-                  t2tr::Vector{Dict{D,Vector{D}}},
-                  A::AbstractMatrix{T},
-                  y::AbstractArray{T}) where {D<:Integer, T <: AbstractFloat}
-  Ns = size(A,1)
-
-  fill!(alpha,zero(T))
-  fill!(c,zero(T))
-  for j in keys(t2tr[1])
-    alpha[1,j] = y[1,j]/length(t2tr[1])
-    c[1] += alpha[1,j]
-  end
-
-  # normalize
-  for j = 1:Ns
-    alpha[1,j] /= c[1]
-  end
-
-  for t = 2:Nt
-    for i in keys(t2tr[t-1])
-      for j in t2tr[t-1][i]
-        aij = A[i,j]
-        if  aij == zero(T) error("zero hit in transition matrix at ($i,$j), something wrong in time2transition or A") end
-        alpha[t,j] += alpha[t-1,i]*aij*y[t,j]
-      end
-    end
-    for j = 1:Ns
-      c[t] += alpha[t,j]
-    end
-    for j = 1:Ns
-      alpha[t,j] /= c[t] 
-    end
-  end
-  return alpha, c
-end
-
 # forward with constrained path
 function forward!(alpha::AbstractArray{T},c::Vector{T},
                   Nt::Integer,

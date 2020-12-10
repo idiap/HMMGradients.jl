@@ -34,29 +34,6 @@ end
 function logbackward!(beta::Matrix{T},
                       Nt::Integer,
                       A::AbstractMatrix{T},
-                      t2tr::Vector{Dict{D,Vector{D}}},
-                      y::AbstractMatrix{T}) where {D<:Integer,T<:AbstractFloat}
-  Ns = size(A,1)
-  fill!(beta, -T(Inf))
-  for i = 1:Ns
-    beta[Nt,i] = zero(T)
-  end
-  it2tr = invert_time2transitions(t2tr)
-
-  for t = Nt-1:-1:1
-    for k in keys(it2tr[t])
-      for j in it2tr[t][k]
-        beta[t,j] = logadd(beta[t,j], beta[t+1,k]+A[j,k]+y[t+1,k])
-      end
-    end
-  end
-  return beta
-end
-
-# backward with constrained path
-function logbackward!(beta::Matrix{T},
-                      Nt::Integer,
-                      A::AbstractMatrix{T},
                       t2IJ::Vector{Pair{Vector{D},Vector{D}}},
                       y::AbstractMatrix{T}) where {D<:Integer,T<:AbstractFloat}
   Ns = size(A,1)

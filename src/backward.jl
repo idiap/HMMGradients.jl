@@ -39,31 +39,6 @@ function backward!(beta::AbstractMatrix{T},
                    Nt::Integer,
                    A::AbstractMatrix{T},
                    c::Vector{T},
-                   t2tr::Vector{Dict{D,Vector{D}}},
-                   y::AbstractMatrix{T}) where {D<:Integer,T<:AbstractFloat}
-  Ns = size(A,1)
-  fill!(beta,zero(T))
-  beta[end,:] .= 1
-  it2tr = invert_time2transitions(t2tr)
-
-  for t = Nt-1:-1:1
-    for k in keys(it2tr[t])
-      for j in it2tr[t][k]
-        beta[t,j] += beta[t+1,k]*A[j,k]*y[t+1,k]
-      end
-    end
-    for j = 1:Ns
-      beta[t,j] /= c[t+1]
-    end
-  end
-  return beta
-end
-
-# backward with constrained path
-function backward!(beta::AbstractMatrix{T},
-                   Nt::Integer,
-                   A::AbstractMatrix{T},
-                   c::Vector{T},
                    t2IJ::Vector{Pair{Vector{D},Vector{D}}},
                    y::AbstractMatrix{T}) where {D<:Integer,T<:AbstractFloat}
   Ns = size(A,1)

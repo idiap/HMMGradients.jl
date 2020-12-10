@@ -97,10 +97,12 @@ alphas_cs = [forward(Nts[i],as[:,i],As[:,:,i],ys[:,:,i]) for i=1:Nb]
 grada, gradA, grady = HMMGradients.get_grad(Nts,as,As,ys,alphas,cs) 
 grada_gradA_grady = [HMMGradients.get_grad(Nts[i],as[:,i],As[:,:,i],ys[:,:,i],alphas[i],cs[i]) for i=1:Nb] 
 fys = [nlogML(Nts[i],as[:,i],As[:,:,i],ys[:,:,i]) for i=1:Nb] 
+fy2 = nlogML(Nts,as,As,ys)
 fy,p = ChainRulesCore.rrule(nlogML, Nts, as, As, ys)
 _,_,grada2,gradA2,grady2 = p(1.0)
 
 @test sum(fys) ≈ fy
+@test fy2 == fy
 @test all([norm(grada[:,i]-grada_gradA_grady[i][1]) for i = 1:Nb] .< 1e-5)
 @test all([norm(gradA[:,:,i]-grada_gradA_grady[i][2]) for i = 1:Nb] .< 1e-5)
 @test all([norm(grady[:,:,i]-grada_gradA_grady[i][3]) for i = 1:Nb] .< 1e-5)
@@ -175,8 +177,10 @@ alphas_cs = [forward(Nts[i],t2IJs[i],A,y[:,:,i]) for i=1:Nb]
 grada, gradA, grady = HMMGradients.get_grad(Nts,t2IJs,A,y,alphas,cs) 
 grada_gradA_grady = [HMMGradients.get_grad(Nts[i],t2IJs[i],A,y[:,:,i],alphas[i],cs[i]) for i=1:Nb] 
 fy,p = ChainRulesCore.rrule(nlogML, Nts, t2IJs, A, y)
+fy2 = nlogML(Nts,t2IJs,A,y)
 _,_,grada2,gradA2,grady2 = p(1.0)
 
+@test fy == fy2
 @test all([norm(grady[:,:,i]-grada_gradA_grady[i][3]) for i = 1:Nb] .< 1e-5)
 @test all([norm(grady2[:,:,i]-grada_gradA_grady[i][3]) for i = 1:Nb] .< 1e-5)
 @test gradA2 == ChainRulesCore.DoesNotExist()

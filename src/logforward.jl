@@ -39,36 +39,6 @@ end
 # forward with constrained path
 function logforward!(alpha::AbstractArray{T},
                      Nt::Integer,
-                     t2tr::Vector{Dict{D,Vector{D}}},
-                     A::AbstractMatrix{T},
-                     y::AbstractArray{T}) where {D<:Integer, T <: AbstractFloat}
-  Ns = size(A,1)
-
-  fill!(alpha,-T(Inf))
-  for j in keys(t2tr[1])
-    alpha[1,j] = y[1,j] - log(length(t2tr[1]))
-  end
-
-  for t = 2:Nt
-    for i in keys(t2tr[t-1])
-      for j in t2tr[t-1][i]
-        aij = A[i,j]
-        if  aij == -T(Inf) error("zero hit in transition matrix at ($i,$j), something wrong in time2transition or A") end
-        alpha[t,j] = logadd(alpha[t,j],alpha[t-1,i]+aij+y[t,j])
-      end
-    end
-  end
-
-  logML = -T(Inf)
-  for i = 1:Ns
-    logML = logadd(logML,alpha[Nt,i]) 
-  end
-  return alpha, logML/Nt
-end
-
-# forward with constrained path
-function logforward!(alpha::AbstractArray{T},
-                     Nt::Integer,
                      t2IJ::Vector{Pair{Vector{D},Vector{D}}},
                      A::AbstractMatrix{T},
                      y::AbstractArray{T}) where {D<:Integer, T <: AbstractFloat}
