@@ -1,7 +1,7 @@
 name = "HMMGradients"
 uuid = "ed22c0d8-4b10-4781-a02d-2b7b373fe96c"
 authors = ["Niccolò Antonello"]
-version = "0.1.1"
+version = "0.1.2"
 
 [deps]
 ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
