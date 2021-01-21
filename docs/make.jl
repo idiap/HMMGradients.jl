@@ -11,6 +11,7 @@ makedocs(
         "Theory and Notation" => "1_intro.md",
         "Forward-Backward functions" => "2_fb.md",
         "Computing gradients" => "3_grads.md",
+        "Demo" => "4_demo.md",
     ],
     doctest=false,
 )

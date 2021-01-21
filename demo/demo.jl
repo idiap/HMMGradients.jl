@@ -1,6 +1,6 @@
 using HMMGradients, LinearAlgebra, Random, Statistics, Distributions, Zygote
 use_log = true # do computation in log domain
-plot_stuff = false
+plot_stuff = true
 
 # define Gaussian probability distribution
 logdist(μ::T,σ::T,x::T) where {T} = -( ((x-μ)/σ)^2/2 + log(σ*sqrt(T(2*π))))

@@ -1,0 +1,5 @@
+[deps]
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+HMMGradients = "ed22c0d8-4b10-4781-a02d-2b7b373fe96c"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
