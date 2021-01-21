@@ -4,6 +4,7 @@
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://idiap.github.io/HMMGradients.jl/dev/)
 ![CI](https://github.com/idiap/HMMGradients.jl/workflows/CI/badge.svg)
 [![codecov](https://codecov.io/gh/idiap/HMMGradients.jl/branch/main/graph/badge.svg?token=012MD4OIZY)](https://codecov.io/gh/idiap/HMMGradients.jl)
+[![DOI](https://zenodo.org/badge/318543104.svg)](https://zenodo.org/badge/latestdoi/318543104)
 
 This package enables computing the gradient of the parameters of [Hidden Markov Models (HMMs)](https://en.wikipedia.org/wiki/Hidden_Markov_model). 
 This makes it possible to perform HMM training using gradient based methods like stochastic gradient descent, which is necessary for example when neural networks are involved, e.g. in modern automatic speech recognition systems.
