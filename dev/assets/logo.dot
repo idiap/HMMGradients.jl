@@ -1,0 +1,13 @@
+digraph FST {
+orientation = Landscape;
+bgcolor="transparent";
+center=1;
+1 [ shape = doublecircle, style = solid, label="", color="#ff635d", style=filled]
+	1 -> 1 [color="#6682df"];
+	1 -> 2 [color="#6682df"];
+2 [ shape = doublecircle, style = solid, label="", color="#60ad51", style=filled]
+	2 -> 2 [color="#6682df"];
+	2 -> 3 [color="#6682df"];
+3 [ shape = doublecircle, style = solid, label="", color="#aa79c1", style=filled]
+	3 -> 3 [color="#6682df"];
+}
