@@ -7,7 +7,7 @@
 [![DOI](https://zenodo.org/badge/318543104.svg)](https://zenodo.org/badge/latestdoi/318543104)
 
 This package enables computing the gradient of the parameters of [Hidden Markov Models (HMMs)](https://en.wikipedia.org/wiki/Hidden_Markov_model). 
-This makes it possible to perform HMM training using gradient based methods like stochastic gradient descent, which is necessary for example when neural networks are involved, e.g. in modern automatic speech recognition systems.
+This makes it possible to perform HMM training using gradient based methods like stochastic gradient descent, which is necessary for example when neural networks are involved, e.g. in modern automatic speech recognition systems. Check out this [TIDIGITS recipe](https://github.com/idiap/TIDIGITSRecipe.jl) for an example.
 
 Formally, this package extends [ChainRulesCore](https://github.com/JuliaDiff/ChainRulesCore.jl)
 making it possible to train HMM models using the automatic differentiation frameworks of Julia,
