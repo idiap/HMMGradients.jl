@@ -17,7 +17,7 @@ include("utils.jl")
   @testset "logprob space" begin
     include("test_loggrad.jl")
   end
-  if VERSION >= v"1.5.0"
+  if VERSION >= v"1.6.0"
     # printing number is different in 1.0 
     doctest(HMMGradients)
   end

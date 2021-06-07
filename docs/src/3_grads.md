@@ -48,7 +48,7 @@ julia> _, _, grada, gradA, grady = pullback_nlogML(1.0);
 julia> @assert grada == gradA == ChainRulesCore.NoTangent();
 
 julia> grady
-3×2 Array{Float64,2}:
+3×2 Matrix{Float64}:
  -3.33333  -0.0
  -0.25641  -0.25641
  -0.0      -1.11111
@@ -80,7 +80,7 @@ julia> cost, pullback_nlogML = ChainRulesCore.rrule(nlogML, Nts, t2trs, A, yb);
 julia> _, _, _, _, grady = pullback_nlogML(1.0);
 
 julia> grady
-4×2×2 Array{Float64,3}:
+4×2×2 Array{Float64, 3}:
 [:, :, 1] =
  -3.33333  -0.0
  -0.25641  -0.25641
