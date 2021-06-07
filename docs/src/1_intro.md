@@ -263,7 +263,7 @@ are not equal to zero and ``\mathbf{A}_t`` is invertible.
 
 ## Log probabilities
 
-Another approach to prevent numerical overflown
+Another approach to prevent numerical overflow
 is to compute the forward and backward probabilities in the log-domain.
 ```math
 \hat{\alpha}_{1,j} = \hat{a}_j + \hat{y}_{1,j}
