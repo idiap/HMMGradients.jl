@@ -137,8 +137,8 @@ grady_fd = gradient_fd(y->nlogMLlog(Nt,t2IJ,A,y),y)
 @test norm(grady   - grady_fd, Inf)/norm(grady_fd) < 1e-5
 @test norm(grady2  - grady_fd, Inf)/norm(grady_fd) < 1e-5
 @test norm(grady3  - grady_fd, Inf)/norm(grady_fd) < 1e-5
-@test gradA3 == ChainRulesCore.DoesNotExist()
-@test grada3 == ChainRulesCore.DoesNotExist()
+@test gradA3 == ChainRulesCore.NoTangent()
+@test grada3 == ChainRulesCore.NoTangent()
 
 # test with zeropadded input
 Nz = 20
@@ -172,5 +172,5 @@ _,_,grada2,gradA2,grady2 = p(1.0)
 
 @test all([norm(grady[:,:,i]-grada_gradA_grady[i][3]) for i = 1:Nb] .< 1e-5)
 @test all([norm(grady2[:,:,i]-grada_gradA_grady[i][3]) for i = 1:Nb] .< 1e-5)
-@test grada2 == ChainRulesCore.DoesNotExist()
-@test gradA2 == ChainRulesCore.DoesNotExist()
+@test grada2 == ChainRulesCore.NoTangent()
+@test gradA2 == ChainRulesCore.NoTangent()

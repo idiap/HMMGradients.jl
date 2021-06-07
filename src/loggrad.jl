@@ -81,8 +81,8 @@ function get_loggrad(Nt::Integer,
                      logML::T
                     ) where {T <: AbstractFloat}
   Ns = size(A,1)
-  grada = typeof(a) <: Array{T} ? -T(Inf) .* ones(T,Ns) : DoesNotExist() 
-  gradA = typeof(a) <: Array{T} ? -T(Inf) .* ones(T,Ns,Ns) : DoesNotExist() 
+  grada = typeof(a) <: Array{T} ? -T(Inf) .* ones(T,Ns) : NoTangent() 
+  gradA = typeof(a) <: Array{T} ? -T(Inf) .* ones(T,Ns,Ns) : NoTangent() 
   grady = -T(Inf) .* ones(T,size(y,1),Ns)
   betat1 = zeros(T,Ns)
   betat0 = -T(Inf).*ones(T,Ns)
@@ -133,8 +133,8 @@ function get_loggrad(
                     ) where {T <: AbstractFloat, Z, K<:AbstractVector{Z}, D <: Integer}
   Ns = size(A,1)
   Nb = size(y,3)
-  grada = DoesNotExist()    
-  gradA = DoesNotExist()    
+  grada = NoTangent()    
+  gradA = NoTangent()    
   grady = -T(Inf) .* ones(T,size(y,1),Ns,Nb)
   betat1 = zeros(T,Ns)
   betat0 = -T(Inf).*ones(T,Ns)

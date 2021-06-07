@@ -83,8 +83,8 @@ function get_grad(Nt::Integer,
                   alpha::Matrix{T},
                   c::Vector{T}) where {T <: AbstractFloat}
   Ns = length(a)
-  grada = typeof(a) <: AbstractVector{T} ? zeros(T,Ns) : DoesNotExist() 
-  gradA = typeof(a) <: AbstractVector{T} ? zeros(T,Ns,Ns) : DoesNotExist() 
+  grada = typeof(a) <: AbstractVector{T} ? zeros(T,Ns) : NoTangent() 
+  gradA = typeof(a) <: AbstractVector{T} ? zeros(T,Ns,Ns) : NoTangent() 
   grady = zeros(T,size(y))
   betat1 = ones(T,Ns)
   betat0 = zeros(T,Ns)
@@ -133,8 +133,8 @@ function get_grad(Nts::Vector{D},
                           K<:AbstractVector{Z}, D <: Integer}
   Ns = size(A,1)
   Nb = size(y,3)
-  grada = DoesNotExist() 
-  gradA = DoesNotExist() 
+  grada = NoTangent() 
+  gradA = NoTangent() 
   grady = zeros(T,size(y,1),Ns,Nb)
   betat1 = ones(T,Ns)
   betat0 = zeros(T,Ns)

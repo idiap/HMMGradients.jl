@@ -45,7 +45,7 @@ julia> cost, pullback_nlogML = ChainRulesCore.rrule(nlogML, Nt, t2tr, A, y);
 
 julia> _, _, grada, gradA, grady = pullback_nlogML(1.0);
 
-julia> @assert grada == gradA == ChainRulesCore.DoesNotExist();
+julia> @assert grada == gradA == ChainRulesCore.NoTangent();
 
 julia> grady
 3×2 Array{Float64,2}:
